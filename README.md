@@ -1,7 +1,7 @@
 Instruction to setup and run
 
 Requirements:
-Java 8
+Java 8,
 apache-maven-3.6.3
  
 For building : mvn clean install
