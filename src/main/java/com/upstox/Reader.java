@@ -42,27 +42,10 @@ public class Reader implements Runnable {
                 trade.setP(jsonNode.get("P").asDouble());
                 trade.setQ(jsonNode.get("Q").asDouble());
                 trade.setTS2(jsonNode.get("TS2").asLong());
-                //System.out.println(trade.getTradeInDateTime());
-//                if(trade.getSym().equals("XETHZUSD")) {
-//                    CalculateOHLC compute = new CalculateOHLC();
-//                    OHLC ohlc = compute.FetchBarStats(trade, 1);
-//                    System.out.println(ohlc.toString());
-//                }
-//                SwingUtilities.invokeLater(() -> {
-//                    OHLCChart example = new OHLCChart(
-//                            "High Low Chart Example");
-//                    example.setSize(800, 400);
-//                    example.setLocationRelativeTo(null);
-//                    example.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-//                    example.setVisible(true);
-//                });
-
                 if (trade.getSym().equals(stockName))
                     blockingQueue.put(trade);
-                //Common.trades.add(trade);
             }
             blockingQueue.put(new Trade());
-            //System.out.println(trades);
             bufferedReader.close();
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
